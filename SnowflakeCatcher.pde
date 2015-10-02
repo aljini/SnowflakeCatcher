@@ -76,6 +76,7 @@ class Snowflake
 
       isMoving=false;
     }
+   
     else{
       isMoving=true;
     }
@@ -97,8 +98,8 @@ class Snowflake
     if(isMoving==false){
       myY=0;
     }
-  
   }
+    
 }
   
 
