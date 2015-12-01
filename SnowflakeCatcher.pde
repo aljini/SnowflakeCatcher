@@ -10,16 +10,22 @@ void setup()
 {
   size(500, 500);
   snowStorm = new Snowflake[1000];
-  background(25,25,112);
+  background(4,9,84);
 
   
   for (int i= 0; i<snowStorm.length;i++){
     snowStorm[i] =new Snowflake(snowX,snowY,snowRed,snowBlue,snowGreen);
   }
 }
+void mouseDragged()
+{
+  noStroke();
+  fill(200);
+  ellipse(mouseX, mouseY, 10, 10);
+
+  
+}
 void draw()
-
-
 {
   for (int i= 0; i<snowStorm.length;i++){
    snowStorm[i].erase();
@@ -29,19 +35,11 @@ void draw()
    snowStorm[i].show();
   }
 }
-void mouseDragged()
-{
-  noStroke();
-  fill(125,25,112);
-  ellipse(mouseX, mouseY, 10, 10);
 
-  
-}
 
 class Snowflake
 
 {
-
   int myX,myY,snowR,snowG,snowB;
   boolean isMoving;
   
@@ -72,7 +70,7 @@ class Snowflake
   }
   void lookDown()
   {
-    if (myY>500){
+    if (get(myX,myY+10)==color(200)){
 
       isMoving=false;
     }
@@ -84,7 +82,7 @@ class Snowflake
   void erase()
   {
     noStroke();
-    fill(25,25,112);
+    fill(2,10,84);
     ellipse(myX, myY, 7, 7);
   }
   void move()
@@ -95,7 +93,7 @@ class Snowflake
   }
   void wrap()
   {
-    if(isMoving==false){
+    if(myY>500){
       myY=0;
     }
   }
